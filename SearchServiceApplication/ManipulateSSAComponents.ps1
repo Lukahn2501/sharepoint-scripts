@@ -1,6 +1,7 @@
 # Examples of topology manipulation
 # USAGE: Run each at a time (because you need to be waiting for an SSA instance to boot)
 # WARNING: Edit before use considering needs
+# Applies to : SharePoint 2013
 
 # Starting the instances
 $hostA = Get-SPEnterpriseSearchServiceInstance -Identity "Base Server Name"
