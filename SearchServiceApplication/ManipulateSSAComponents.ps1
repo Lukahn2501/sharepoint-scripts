@@ -18,7 +18,10 @@ $active
 # Viewing every component in active topology
 Get-SPEnterpriseSearchComponent -SearchTopology $active
 # Suspend the Search Service Application
-$ssa | Suspend-SPEnterpriseSearchServiceApplication
+    # General Case
+    $ssa | Suspend-SPEnterpriseSearchServiceApplication
+    # Index repartitionning case
+    $ssa.PauseForIndexRepartitioning()
 # Cloning the active topology to manipulate it instead of the active one
 $clone = New-SPEnterpriseSearchTopology -SearchApplication $ssa -Clone -SearchTopology $active
 # ADDING COMPONENTS TO HOST B
