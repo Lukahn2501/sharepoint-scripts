@@ -17,10 +17,10 @@ $active = Get-SPEnterpriseSearchTopology -Active -SearchApplication $ssa
 $active
 # Viewing every component in active topology
 Get-SPEnterpriseSearchComponent -SearchTopology $active
-# Cloning the active topology to manipulate it instead of the active one
-$clone = New-SPEnterpriseSearchTopology -SearchApplication $ssa -Clone -SearchTopology $active
 # Suspend the Search Service Application
 $ssa | Suspend-SPEnterpriseSearchServiceApplication
+# Cloning the active topology to manipulate it instead of the active one
+$clone = New-SPEnterpriseSearchTopology -SearchApplication $ssa -Clone -SearchTopology $active
 # ADDING COMPONENTS TO HOST B
     # Adding components to host B
     New-SPEnterpriseSearchAdminComponent -SearchTopology $clone -SearchServiceInstance $hostB
