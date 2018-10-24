@@ -37,12 +37,12 @@ $clone = New-SPEnterpriseSearchTopology -SearchApplication $ssa -Clone -SearchTo
     New-SPEnterpriseSearchIndexComponent -SearchTopology $clone -SearchServiceInstance $hostB -IndexPartition 1
     # Verifying the cloned topology
     Get-SPEnterpriseSearchComponent -SearchTopology $clone
-    # Activating the new topology
-    Set-SPEnterpriseSearchTopology -Identity $clone
 # REMOVING COMPONENTS FROM HOST A
     # Get the components 
     Get-SPEnterpriseSearchComponent -SearchTopology $clone # Note the id of the component you want to remove
     # Remove the component with the right id
     Remove-SPEnterpriseSearchComponent -Identity <Search component id> -SearchTopology $clone
+# Activating the new topology
+Set-SPEnterpriseSearchTopology -Identity $clone
 # Resume the search service application
 $ssa | Resume-SPEnterpriseSearchServiceApplication
