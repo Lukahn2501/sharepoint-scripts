@@ -1,6 +1,7 @@
 # Examples of topology manipulation
 # USAGE: Run each at a time (because you need to be waiting for an SSA instance to boot)
 # WARNING: Edit before use considering needs
+#          For index creating, you need to be on the server where you want to create the index
 # Applies to : SharePoint 2013
 
 # Starting the instances
@@ -20,7 +21,7 @@ Get-SPEnterpriseSearchComponent -SearchTopology $active
 # Suspend the Search Service Application
     # General Case
     $ssa | Suspend-SPEnterpriseSearchServiceApplication
-    # Index repartitionning case
+    # For EVERY TOPOLOGY CHANGE
     $ssa.PauseForIndexRepartitioning()
 # Cloning the active topology to manipulate it instead of the active one
 $clone = New-SPEnterpriseSearchTopology -SearchApplication $ssa -Clone -SearchTopology $active
